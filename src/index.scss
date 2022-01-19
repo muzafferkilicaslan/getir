@@ -99,21 +99,25 @@ html,body{
       float: left;
     }
 
-    .right{
-      float: right;
-      margin:15px 15px;     
+    .center{
+      float: center;
+           
     }
 
-    .right input{
+    .center svg{
+      margin-right: 10px;
+    }
+
+    .center input{
       height: 50px;
-      width: 800px;
+      width: 400px;
       margin-right: 60px;
       border-radius: 5px;    
       font-size: 25px;
       padding: 15px;
       
     }
-    .right text{      
+    .center text{      
       position: relative;
       
     }
@@ -128,6 +132,7 @@ html,body{
 
   .categories{
     width: 25%;
+    min-height: 600px;
     margin:40px 40px;
     padding:20px;
     background-color: #fff;
@@ -145,15 +150,13 @@ html,body{
     .category p{
       display: inline;
       font-size: 20px;
-      font-weight: bold;
-
     }
   }
   .products{
-    width: 75%;
+    width: 50%;
     margin: 30px 30px;
     height: auto;
-    background-color: #ddd;
+    background-color: #eee;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -164,6 +167,8 @@ html,body{
       width: 33%;
       margin-bottom: 35px;
       border:2px solid #4c3398;
+      border-radius: 5px;
+      background-color: #ccc;
 
       .price{
         color:#4c3398;
@@ -197,11 +202,52 @@ html,body{
         
     }
     
-
     .product img{
       width: 100%;
       cursor: pointer;
     }
   }
+  .basket{
+    background-color: #fff;
+    width: 25%;
+    min-height: 600px;
+    margin:40px 40px;
+    padding:20px;
+    text-align: center;  
+  }
+
+  .basket svg{
+    color:#5d3ebc;
+    text-align: center;
+  }
+
+  .basket p{
+    color:#5d3ebc;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .basket-item{
+    padding: 5px 5px;
+    margin:5px 5px;
+    background-color: #ffd300;
+    
+  }
+
+  .title{
+    color:#4c3398;
+    font-size: 18px;
+    float: left;
+  }
+
+  .desc{
+    color:grey;
+    
+  }
+  .total{
+    
+  }
+
+  
 }
 
