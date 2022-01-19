@@ -22,6 +22,7 @@ function App() {
   const [total,setTotal]= useState(0)
   const [search,setSearch] = useState('')
   const [prod,setProd]= useState(productArray)
+  const c1='Su & İçecekler'
 
   useEffect(()=>{
     setTotal(
@@ -34,9 +35,15 @@ function App() {
     );
   },[basket])
   
+
+  //burada
+  const write = ({c}) => {
+    setProd(productArray.filter(prod=>prod.category.toLowerCase()==='fırından'))
+  }
   
 
   useEffect(()=>{
+    console.log(prod)
   },[prod])
 
   useEffect (()=>{
@@ -51,7 +58,7 @@ function App() {
         <div className="categories">
           <h3>Kategoriler</h3>
           {category.map((c)=>
-          <Category key={c.id} category={c} />
+          <Category key={c.id} category={c} write={write} />
         )}
         </div>
         <div className="products">

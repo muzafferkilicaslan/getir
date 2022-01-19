@@ -10,7 +10,7 @@ const Basket = ({basket,total,setTotal}) => {
         <div className='basket-item'>
         <div className='title'><p>{basket.title}</p></div>    
         <div className='desc'><span>{basket.amount}X{basket.price}</span></div>         
-        <div className='total'><p>{total2}</p></div>      
+        <div className='total'><p>₺{total2}</p></div>      
         </div>
     );
 };

@@ -101,6 +101,7 @@ html,body{
 
     .center{
       float: center;
+      
            
     }
 
@@ -115,7 +116,7 @@ html,body{
       border-radius: 5px;    
       font-size: 25px;
       padding: 15px;
-      
+      margin-top: 16px;
     }
     .center text{      
       position: relative;
@@ -131,7 +132,7 @@ html,body{
   background-color: #bbb;
 
   .categories{
-    width: 25%;
+    width: 20%;
     min-height: 600px;
     margin:40px 40px;
     padding:20px;
@@ -139,21 +140,28 @@ html,body{
     
     .category {
      margin-top: 10px;
-     margin-left:10px; 
+     margin-left:10px;
+     height: 70px;     
+     cursor:pointer; 
     }
 
     .category img{
-      cursor:pointer;
+      
       width: 70px;
       height: 70px;
+      float: left;
     }
-    .category p{
-      display: inline;
-      font-size: 20px;
+    
+    .category-item p{
+      
+      margin-top: 15px;
+      display: flex;
+      vertical-align: middle;
+      line-height: 70px;
     }
   }
   .products{
-    width: 50%;
+    width: 60%;
     margin: 30px 30px;
     height: auto;
     background-color: #eee;
@@ -209,7 +217,7 @@ html,body{
   }
   .basket{
     background-color: #fff;
-    width: 25%;
+    width: 20%;
     min-height: 600px;
     margin:40px 40px;
     padding:20px;
@@ -237,17 +245,22 @@ html,body{
   .title{
     color:#4c3398;
     font-size: 18px;
-    float: left;
+    
   }
 
   .desc{
     color:grey;
+    margin-top: 10px;
     
   }
   .total{
-    
+    margin-top: 20px;
   }
 
+  .total-price{
+    margin-top: 40px;
+    
+  }
   
 }
 
