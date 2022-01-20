@@ -34,12 +34,16 @@ html,body{
   height: 70px;
   background-color: #4c3398;
   width: 100%;
+ 
   
+
 .navbar{
   font-size:20px;
   text-align: center;
   display: inline;
   color:white;
+
+  
 
   .navbar-left{
     float: left;
@@ -56,6 +60,10 @@ html,body{
       display: inline;
       padding: 20px;
       cursor: pointer;
+      color:white;
+    }
+    .navbar-item a:link{
+      text-decoration: none;
     }
   }
 

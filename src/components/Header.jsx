@@ -2,13 +2,19 @@ import React from "react";
 import PersonIcon from '@mui/icons-material/Person';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import LanguageIcon from '@mui/icons-material/Language';
+import {Link} from 'react-router-dom';
 
 const Header = () => (
   <div className="header">
     <div className="navbar">
     <div className="navbar-left">
+    <Link to='/getir'>
       <div className="navbar-item"><span>getir</span></div>
+      </Link>
+      
+      <Link to='/'>
       <div className="navbar-item"><span>getir</span>yemek</div>
+      </Link>
       <div className="navbar-item"><span>getir</span>büyük</div>
       <div className="navbar-item"><span>getir</span>su</div>
     </div>
