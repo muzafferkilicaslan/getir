@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Basket = ({basket,total,setTotal}) => {
+const Basket = ({basket}) => {
 
     const total2=basket.amount*basket.price
 

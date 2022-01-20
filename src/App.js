@@ -6,49 +6,32 @@ import Category from "./components/Category";
 import Basket from './components/Basket';
 
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import products from './product.json';
+
 import category from './category.json';
 import { useState, useEffect } from "react";
 
 function App() {
 
-  const productArray = []
-  Object.keys(products).map(key=>{
-    productArray.push(products[key])
-  })
-
-
   const [basket,setBasket]= useState([])
   const [total,setTotal]= useState(0)
   const [search,setSearch] = useState('')
-  const [prod,setProd]= useState(productArray)
-  const c1='Su & İçecekler'
+  const [prod,setProd]= useState()
+  
+  
+  const x='Su & İçecekler'
 
   useEffect(()=>{
-    setTotal(
-      basket.reduce((acc, item) => {
-        return (
-          acc +
-          item.amount * products.find((product) => product.id === item.id).price
-        );
-      }, 0)
-    );
+    console.log(basket)
+    console.log(total)
   },[basket])
-  
 
-  //burada
-  const write = ({c}) => {
-    setProd(productArray.filter(prod=>prod.category.toLowerCase()==='fırından'))
-  }
-  
-
-  useEffect(()=>{
-    console.log(prod)
-  },[prod])
 
   useEffect (()=>{
-    setProd(productArray.filter(prod=>prod.title.toLowerCase().includes(search)))        
+    //setProd(productArray.filter(prod=>prod.title.toLowerCase().includes(search)))
   },[search])
+
+
+  
 
   return (
     <>
@@ -58,16 +41,19 @@ function App() {
         <div className="categories">
           <h3>Kategoriler</h3>
           {category.map((c)=>
-          <Category key={c.id} category={c} write={write} />
+          <Category key={c.id} category={c} />
         )}
         </div>
         <div className="products">
         {
-          prod.map((prodItem)=>(
-             <Product key={prodItem.id} product={prodItem} basket={basket} setBasket={setBasket} />             
+          category.map((cat)=>(
+            <>
+              {cat.products.map((p)=>(
+                <Product key={p.id} product={p} basket={basket} setBasket={setBasket} />                
+              ))}
+            </>
           ))
         }
-        
         </div>
         <div className="basket">
             <ShoppingBasketIcon />
