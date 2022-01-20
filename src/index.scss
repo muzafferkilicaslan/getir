@@ -28,22 +28,19 @@ html,body{
 
 #root {
   height: 100%;
+  
 }
 
 .header{
   height: 70px;
   background-color: #4c3398;
-  width: 100%;
- 
-  
+  width: 100%;  
 
 .navbar{
   font-size:20px;
   text-align: center;
   display: inline;
   color:white;
-
-  
 
   .navbar-left{
     float: left;
@@ -272,3 +269,7 @@ html,body{
   
 }
 
+ .homepage{
+   height: 100%;
+   background-color: red;
+ }
