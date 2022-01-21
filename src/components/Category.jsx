@@ -10,7 +10,6 @@ const Category = ({category, setProd, pArray, search, setCat}) => {
         }else{
             setProd(pArray.filter((p)=>p.category===category.categoryName))        
         } 
-        
     }
 
     return (

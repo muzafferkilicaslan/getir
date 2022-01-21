@@ -21,6 +21,7 @@ function Getir() {
     </>
   ))
 
+  const [serverProduct,setServerProduct] = useState([]) 
   const [basket, setBasket] = useState([])
   const [total, setTotal] = useState(0)
   const [search, setSearch] = useState('')
@@ -44,12 +45,9 @@ function Getir() {
   },[cat])
   
   useEffect(()=> {
-    console.log(prod)
-
   },[prod])
 
   useEffect(() => {
-      console.log(search)
       if(cat){
         setProd(pArray.filter(prod => prod.category===cat && prod.title.toLowerCase().includes(search)))  
       }
