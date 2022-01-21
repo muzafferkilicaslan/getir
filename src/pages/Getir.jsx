@@ -39,6 +39,25 @@ function Getir() {
   }, [basket])
 
   useEffect(()=>{
+    const getTasks=async()=>{
+      const tasksFromServer = await fetchTasks()
+      pArray2.push(tasksFromServer[1].products)
+      console.log(pArray2)
+      setServerProduct(pArray2)
+    }
+     getTasks()
+     console.log(serverProduct)
+   }, [])
+
+   
+  const fetchTasks= async()=> {
+    const res = await fetch('http://localhost:5000/products1')
+    const data = await res.json()
+    
+    return data
+  }
+
+  useEffect(()=>{
     if(search){
       setProd(pArray.filter(prod => prod.category===cat && prod.title.toLowerCase().includes(search)))  
     }
