@@ -1,15 +1,18 @@
 import React from 'react';
 
-const Category = ({category, setServerProduct, pArray, search, setCat}) => {
+const Category = ({category, serverProduct, prod, setServerProduct, search, setCat}) => {
 
     const filterProducts= () => {
         const t = category.categoryName
         setCat(t)
         if(search){
-            setServerProduct(pArray.filter((p)=>p.category===category.categoryName && p.title.toLowerCase().includes(search)))
+            const pArray3=prod.filter((p)=>p.category===category.categoryName && p.title.toLowerCase().includes(search))
+            console.log(pArray3)
+            setServerProduct(pArray3)
         }else{
-            console.log("hello")
-            setServerProduct(pArray.filter((p)=>p.category===category.categoryName))        
+            // serverProduct.filter((p)=>p.category===category.categoryName)
+            const pArray2=prod.filter((p)=>p.category===category.categoryName)       
+            setServerProduct(pArray2)
         } 
     }
 
