@@ -17,6 +17,7 @@ function Getir() {
   const [search, setSearch] = useState('')
   const [cat,setCat]=useState()
   
+  
 
   useEffect(()=>{
     const fetchCategories = async() => {
@@ -40,7 +41,9 @@ function Getir() {
   },[serverProduct])
 
   useEffect(()=>{
-    console.log(cat)
+    if(pArray==''){
+      console.log("empty")
+    }
   },[cat])
 
   return(
