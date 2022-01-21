@@ -11,86 +11,54 @@ import category from '../category.json';
 function Getir() {
 
   const pArray=[]
-  const pArray2=[]
-
-  category.map((cat)=>(
-    <>
-      {cat.products.map((p)=>{
-        pArray.push(p)
-      })}
-    </>
-  ))
-
   const [serverProduct,setServerProduct] = useState([]) 
   const [basket, setBasket] = useState([])
   const [total, setTotal] = useState(0)
   const [search, setSearch] = useState('')
-  const [prod, setProd] = useState(pArray)
   const [cat,setCat]=useState()
-
-  useEffect(() => {
-    if (basket.length !== 0) {
-      for (var i = 0; i < basket.length; i++) {
-        const t = basket[i].price
-        setTotal(total + t)
-      }
-    } else {
-    }
-  }, [basket])
-
-  useEffect(()=>{
-    const getTasks=async()=>{
-      const tasksFromServer = await fetchTasks()
-      pArray2.push(tasksFromServer[1].products)
-      console.log(pArray2)
-      setServerProduct(pArray2)
-    }
-     getTasks()
-     console.log(serverProduct)
-   }, [])
-
-   
-  const fetchTasks= async()=> {
-    const res = await fetch('http://localhost:5000/products1')
-    const data = await res.json()
-    
-    return data
-  }
-
-  useEffect(()=>{
-    if(search){
-      setProd(pArray.filter(prod => prod.category===cat && prod.title.toLowerCase().includes(search)))  
-    }
-  },[cat])
   
-  useEffect(()=> {
-  },[prod])
 
-  useEffect(() => {
-      if(cat){
-        setProd(pArray.filter(prod => prod.category===cat && prod.title.toLowerCase().includes(search)))  
-      }
-      else{
-        setProd(pArray.filter(prod => prod.title.toLowerCase().includes(search)))
-      }
-  },[search])
+  useEffect(()=>{
+    const fetchCategories = async() => {
+      const res = await fetch('http://localhost:5000/products1')
+      const data = await res.json()
 
-  return (
+      data.map((d)=>(
+        <>
+          {d.products.map((p)=>{
+            pArray.push(p)
+          })}
+        </>
+      ))
+      setServerProduct(pArray)
+    }
+    fetchCategories()
+  },[])
+
+  useEffect(()=>{
+    console.log(serverProduct)
+  },[serverProduct])
+
+  useEffect(()=>{
+    console.log(cat)
+  },[cat])
+
+  return(
     <>
       <Search search={search} setSearch={setSearch} />
       <div className="container">
         <div className="categories">
           <h3>Kategoriler</h3>
-          
           {category.map((c) =>
-            <Category key={c.id} category={c} setProd={setProd} pArray={pArray} setCat={setCat} />
+            <Category key={c.id} category={c} pArray={pArray} setServerProduct={setServerProduct} setCat={setCat} />
           )}
         </div>
         <div className="products">
           {
-            prod.map((pro) => (
+            serverProduct.map((pro) => (
               <Product key={pro.id} product={pro} basket={basket} setBasket={setBasket} />
-          ))}
+          ))
+          }
 
         </div>
         <div className="basket">

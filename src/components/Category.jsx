@@ -1,14 +1,15 @@
 import React from 'react';
 
-const Category = ({category, setProd, pArray, search, setCat}) => {
+const Category = ({category, setServerProduct, pArray, search, setCat}) => {
 
     const filterProducts= () => {
         const t = category.categoryName
         setCat(t)
         if(search){
-            setProd(pArray.filter((p)=>p.category===category.categoryName && p.title.toLowerCase().includes(search)))
+            setServerProduct(pArray.filter((p)=>p.category===category.categoryName && p.title.toLowerCase().includes(search)))
         }else{
-            setProd(pArray.filter((p)=>p.category===category.categoryName))        
+            console.log("hello")
+            setServerProduct(pArray.filter((p)=>p.category===category.categoryName))        
         } 
     }
 
@@ -18,7 +19,6 @@ const Category = ({category, setProd, pArray, search, setCat}) => {
         key={category.id}
         onClick={filterProducts}
         >
-            
             <div className='category-item'>
             <img src={category.categoryImage} alt={category.categoryName} />
             <p>{category.categoryName}</p>
