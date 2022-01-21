@@ -19,6 +19,7 @@ const Category = ({category, setProd, pArray, search, setCat}) => {
         key={category.id}
         onClick={filterProducts}
         >
+            
             <div className='category-item'>
             <img src={category.categoryImage} alt={category.categoryName} />
             <p>{category.categoryName}</p>

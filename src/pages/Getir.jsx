@@ -38,21 +38,24 @@ function Getir() {
   }, [basket])
 
   useEffect(()=>{
-    console.log(cat)
+    if(search){
+      setProd(pArray.filter(prod => prod.category===cat && prod.title.toLowerCase().includes(search)))  
+    }
   },[cat])
   
   useEffect(()=> {
-    console.log(prod)  
+    console.log(prod)
+
   },[prod])
 
   useEffect(() => {
+      console.log(search)
       if(cat){
         setProd(pArray.filter(prod => prod.category===cat && prod.title.toLowerCase().includes(search)))  
       }
       else{
         setProd(pArray.filter(prod => prod.title.toLowerCase().includes(search)))
       }
-        
   },[search])
 
   return (
@@ -61,6 +64,7 @@ function Getir() {
       <div className="container">
         <div className="categories">
           <h3>Kategoriler</h3>
+          
           {category.map((c) =>
             <Category key={c.id} category={c} setProd={setProd} pArray={pArray} setCat={setCat} />
           )}
@@ -70,7 +74,6 @@ function Getir() {
             prod.map((pro) => (
               <Product key={pro.id} product={pro} basket={basket} setBasket={setBasket} />
           ))}
- 
 
         </div>
         <div className="basket">
