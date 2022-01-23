@@ -31,16 +31,13 @@ function Getir() {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const res = await fetch('http://localhost:5000/products1')
+      const res = await fetch(`http://192.168.1.73:5000/products1`)
       const data = await res.json()
       let pArray = []
-
       data.map((d) => (
-
         d.products.map((p) => {
           pArray.push(p)
         })
-
       ))
       setServerProduct(pArray)
       setProd(pArray)
@@ -86,7 +83,6 @@ function Getir() {
       else {
         setServerProduct(prod)
       }
-
     }
   }, [search])
 
