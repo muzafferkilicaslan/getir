@@ -31,7 +31,7 @@ function Getir() {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const res = await fetch(`http://192.168.1.73:5000/products1`)
+      const res = await fetch(`http://192.168.1.51:5000/products`)
       const data = await res.json()
       let pArray = []
       data.map((d) => (
@@ -45,25 +45,28 @@ function Getir() {
     fetchCategories()
   }, [])
 
+  const fetchCategories1 = async () => {
+    const res1 = await fetch(`http://192.168.1.51:5000/products/1`)
+    const data1 = await res1.json()
+    let pArray2 = []
+    console.log("213")
+    data1.map((d) => (
+      d.products.map((p) => {
+        pArray2.push(p)
+      })
+    ))
+    console.log(pArray2)
+    setServerProduct(pArray2)
+    setProd(pArray2)
+  }
+
   useEffect(() => {
-    if (cat) {
-      if (search !== '') {
-        const pArray4 = prod.filter(p => p.category === cat && p.title.toLowerCase().includes(search))
-        setServerProduct(pArray4)
-      }
-      else {
-        const pArray4 = prod.filter(p => p.category === cat)
-        setServerProduct(pArray4)
-      }
-    } else {
-      if (search !== '') {
-        const pArray4 = prod.filter(p => p.title.toLowerCase().includes(search))
-        setServerProduct(pArray4)
-      }
-      else {
-        setServerProduct(prod)
-      }
-    }}, [cat])
+    
+    if(cat){      
+      fetchCategories1()
+    }
+    console.log("hello")
+    }, [cat])
 
   useEffect(() => {
     if (cat) {
